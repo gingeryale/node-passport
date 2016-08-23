@@ -7,9 +7,9 @@ router.get('/login', function(req, res){
 	console.log('you are here');
 });
 
-router.post('/login', function(req,res,next){
+router.post('/login', function(req,res,next) {
 	passport.authenticate('local', function
-		(err, user, info){
+		(err, user, info) {
 		if(err){
 			return next(err);
 			console.log('there is an error');
@@ -19,7 +19,7 @@ router.post('/login', function(req,res,next){
 			console.log('there is no user');
 		}
 		// user successful auth
-		req.login(user, function(err){
+		req.logIn(user, function(err){
 			if(err){
 				return next(err);
 				console.log('there is an error');
